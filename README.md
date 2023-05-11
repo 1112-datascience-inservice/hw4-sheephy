@@ -8,8 +8,8 @@
 
 - Make the interactive web service of PCA (left) and CA (right) analysis by Shinyapp
 <p align="left">
- <img src="/images/PCA.png" width="25%" height="25%" >
- <img src="/images/CA.png" width="25%" height="25%" >
+ <img src="images/PCA.png" width="100%" height="100%" >
+ <img src="images/CA.png" width="100%" height="100%" >
 <p/>
 
 - You might start by integrating the following example (pcr.R) into shiny app. Of course, feel free to find other appropriate packages for PCA.
@@ -43,7 +43,7 @@ At the beginning, you have to sign up for [shinyapps.io](https://www.shinyapps.i
 In RStudio IDE, you can manage your shinyapps.io accounts by going to `Tools → Global Options → Publishing`. 
 
 <p align="center">
- <img src="/images/shinyapp_on_rstudio.png" width="70%" height="70%" >
+ <img src="images\shinyapp_on_rstudio.png" width="100%" height="70%" >
 <p/>
 
 After connecting your account you can start making your shinyapp. Please comply with the following folder structure. where `110753xxx`need to change to your student number.
@@ -60,7 +60,7 @@ Then, you can see the following screen, and there is a `publish` button in the u
 Please note that you need to make sure your title conforms to the format → `NCCU_DS2023_hw4_studendID`
 
 <p align="center">
- <img src="/images/shinyapp_on_rstudio_2.png" width="60%" height="60%" >
+ <img src="images/shinyapp_on_rstudio_2.png" width="100%" height="60%" >
 <p/>
 
 ## Scores: By Peer Evaluation
