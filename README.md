@@ -2,7 +2,7 @@
 
 #### Name: Hsu FangYao
 #### Student ID: 110971025
-#### ShinyApps link: [<https://yourname.shinyapps.io/NCCU_DS2023_hw4_studentID/>]
+#### ShinyApps link: [https://sheephy.shinyapps.io/NCCU_DS2023_hw4_110971025]
 
 ## Description
 

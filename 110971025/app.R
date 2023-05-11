@@ -1,12 +1,13 @@
 library(shiny)
 library(ggplot2)
+library(plotly)
 library(FactoMineR)
 library(factoextra)
 
-# 加载iris数据集
+# iris dataset
 data(iris)
 
-# 创建Shiny应用程序
+# shiny start
 ui <- fluidPage(
   headerPanel("110971025")
   , sidebarLayout(
@@ -40,6 +41,14 @@ ui <- fluidPage(
           , tabPanel(
             "CA"
             , plotOutput("CAPlot")
+          )
+          , tabPanel(
+            "eigenvalues"
+            , plotOutput("eigenvalues")
+          )
+          , tabPanel(
+            "PCA 3D"
+            , plotlyOutput("pca3dPlot")
           )
         )
       )
@@ -105,9 +114,37 @@ server <- function(input, output){
       print(CAPlot)
     }
   )
+
+  output$eigenvalues <- renderPlot(
+    {
+      row_index <- sample(nrow(iris), input$numData)
+      sampled_data <- iris[row_index, ]
+
+      pca <- PCA(sampled_data[, 1:4], scale.unit = TRUE, graph = FALSE)
+
+      eigenvalues <- fviz_screeplot(pca, addlabels = TRUE)
+      print(eigenvalues)
+    }
+  )
+
+  output$pca3dPlot <- renderPlotly(
+    {
+      row_index <- sample(nrow(iris), input$numData)
+      sampled_data <- iris[row_index, ]
+
+      pca <- PCA(sampled_data[, 1:4], scale.unit = TRUE, graph = FALSE)
+
+      components <- data.frame(pca$ind$coord)
+      components <- cbind(components, sampled_data$Species)
+
+      plot_ly(
+        components, x = ~Dim.1, y = ~Dim.2, z = ~Dim.3
+        , color = ~sampled_data$Species
+        , colors = c("#636EFA", "#EF553B", "#00CC96")
+      )
+    }
+  )
 }
 
-# 运行Shiny应用程序
+# run
 shinyApp(ui = ui, server = server)
-
-
